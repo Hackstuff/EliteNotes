@@ -57,8 +57,11 @@ WSGI_APPLICATION = 'EliteNotes.wsgi.application'
 
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'elite_notes',
+#         'OPTIONS': {
+#             'init_command': 'SET default_storage_engine=INNODB',
+#         }
 #     }
 # }
 
@@ -76,6 +79,16 @@ USE_L10N = True
 USE_TZ = True
 
 
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join(APPLICATION_ROOT, 'templates'),
+        ],
+        'APP_DIRS': True,
+    },
+]
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 STATIC_ROOT = os.path.join(APPLICATION_ROOT, 'static')
@@ -84,3 +97,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
    os.path.join(APPLICATION_ROOT, 'assets'),
 )
+
+# if os.path.isfile(os.path.join(APPLICATION_ROOT, 'settings_local.py')):
+#     __import__(os.path.join(APPLICATION_ROOT, 'settings_local.py'))
