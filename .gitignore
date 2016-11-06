@@ -1,0 +1,21 @@
+*.pyc
+settings_local.py
+*.sublime-workspace
+.sublime-project
+.sass-cache/
+.map
+
+# Mac
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Node stuff
+node_modules/
