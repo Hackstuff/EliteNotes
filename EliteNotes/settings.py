@@ -36,6 +36,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Custom
+    'systems',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -98,5 +100,4 @@ STATICFILES_DIRS = (
    os.path.join(APPLICATION_ROOT, 'assets'),
 )
 
-# if os.path.isfile(os.path.join(APPLICATION_ROOT, 'settings_local.py')):
-#     __import__(os.path.join(APPLICATION_ROOT, 'settings_local.py'))
+EDDB_SYTEMS_FULL = "https://eddb.io/archive/v5/systems.csv"

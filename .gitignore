@@ -4,6 +4,8 @@ settings_local.py
 .sublime-project
 .sass-cache/
 .map
+*.cnf
+.idea/*
 
 # Mac
 .DS_Store
