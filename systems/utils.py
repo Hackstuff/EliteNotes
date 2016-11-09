@@ -2,6 +2,9 @@ import csv
 from .models import System
 
 class SystemsFile(object):
+    """
+    System File used to read the csv from eddb and save it to the DB.
+    """
     mapping = {
         'name': 'name',
         'x': 'x',
@@ -21,6 +24,9 @@ class SystemsFile(object):
             index += 1
 
     def save_obj(self, obj):
+        """
+        Creates new Objects or Updates the old one.
+        """
         try:
             entry = System.objects.get(eddb_id=obj['eddb_id'])
             System.objects.filter(eddb_id=obj['eddb_id']).update(**obj)
@@ -29,6 +35,9 @@ class SystemsFile(object):
         entry.save()
 
     def create_obj(self, row):
+        """
+        Creates an obj to save in DB.
+        """
         obj = dict()
         for field in self.mapping:
             f = self.mapping[field]
@@ -38,6 +47,9 @@ class SystemsFile(object):
         self.save_obj(obj)
 
     def import_file(self, limit=False):
+        """
+        Reads csv File.
+        """
         count = 0
         use_limit = False
         if limit or limit >= 0:
